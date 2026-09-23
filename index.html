@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ANSHIKART | Haute Tech & Architectural Living</title>
+  
+  <!-- Favicon / Meta -->
+  <meta name="description" content="Anshikart - The pinnacle of bespoke electronic engineering, smart home architecture, and neural personal gadgets for the world's most discerning patrons.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⬡</text></svg>">
+
+  <!-- Google Fonts: Syne (Luxury Editorial), Plus Jakarta Sans (Sleek Modern UI), Space Mono (Technical) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome & Lucide Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="luxury-dark">
+  <!-- Glowing Cursor Aura -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- Announcement Bar (Ticker) -->
+  <aside class="top-ticker" aria-label="Announcement">
+    <div class="ticker-content">
+      <span class="ticker-badge"><i class="fa-solid fa-crown"></i> PRIVÉ EDITIONS</span>
+      <span>Worldwide White-Glove Drone & Diplomatic Courier Delivery</span>
+      <span class="ticker-divider">◆</span>
+      <span>Spring 2026 Sovereign Collection Now Open</span>
+      <span class="ticker-divider">◆</span>
+      <span>24/7 Dedicated Aerospace Concierge & Neural Sync Tuning</span>
+      <span class="ticker-divider">◆</span>
+      <span>Cryptographic Blockchain Authenticity Certificate Included</span>
+    </div>
+  </aside>
+
+  <!-- Main Navigation -->
+  <header class="luxury-header" id="navbar">
+    <div class="header-inner container">
+      <!-- Mobile Menu Trigger -->
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Brand Identity -->
+      <a href="#" class="brand-logo" aria-label="Anshikart Home">
+        <div class="brand-monogram">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="20,2 38,12 38,28 20,38 2,28 2,12" stroke="url(#goldGrad)" stroke-width="2.2" fill="rgba(212,175,55,0.06)"/>
+            <polygon points="20,9 31,16 31,24 20,31 9,24 9,16" stroke="url(#goldGrad)" stroke-width="1.2" stroke-dasharray="2 3"/>
+            <circle cx="20" cy="20" r="3.5" fill="url(#goldGrad)"/>
+            <defs>
+              <linearGradient id="goldGrad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#FCE5A4"/>
+                <stop offset="0.5" stop-color="#D4AF37"/>
+                <stop offset="1" stop-color="#936F17"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="brand-naming">
+          <span class="brand-title">ANSHIKART</span>
+          <span class="brand-sub">ATELIER D'ÉLECTRONIQUE</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="desktop-nav" id="desktopNav">
+        <ul class="nav-list">
+          <li><a href="#hero" class="nav-link active">Flagship</a></li>
+          <li><a href="#catalog" class="nav-link">The Vault</a></li>
+          <li><a href="#sanctuary" class="nav-link">Smart Living</a></li>
+          <li><a href="#acoustics" class="nav-link">Neural Audio</a></li>
+          <li><a href="#concierge" class="nav-link">White Glove</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Actions (Currency, Search, Wishlist, Cart) -->
+      <div class="header-actions">
+        <!-- Currency Selector -->
+        <div class="currency-picker" id="currencyPicker">
+          <button class="currency-btn" id="currencyBtn" aria-label="Select Currency">
+            <span class="curr-symbol">$</span>
+            <span class="curr-code">USD</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="currency-dropdown" id="currencyDropdown">
+            <button class="curr-opt active" data-curr="USD" data-sym="$" data-rate="1">USD ($)</button>
+            <button class="curr-opt" data-curr="EUR" data-sym="€" data-rate="0.92">EUR (€)</button>
+            <button class="curr-opt" data-curr="GBP" data-sym="£" data-rate="0.79">GBP (£)</button>
+            <button class="curr-opt" data-curr="AED" data-sym="AED " data-rate="3.67">AED (د.إ)</button>
+            <button class="curr-opt" data-curr="CHF" data-sym="CHF " data-rate="0.88">CHF (Fr.)</button>
+          </div>
+        </div>
+
+        <!-- Search Bar Trigger -->
+        <button class="action-btn search-toggle" id="searchToggle" aria-label="Search Collection">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+
+        <!-- Privé Membership Badge -->
+        <div class="vip-status" title="Privé Tier 1 Active">
+          <span class="vip-pulse"></span>
+          <span class="vip-label">BLACK PASS</span>
+        </div>
+
+        <!-- Cart Trigger -->
+        <button class="action-btn cart-trigger" id="cartTrigger" aria-label="View Private Vault Cart">
+          <i class="fa-solid fa-box-archive"></i>
+          <span class="cart-pill" id="cartCount">0</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Live Search Overlay Drawer -->
+    <div class="search-drawer" id="searchDrawer">
+      <div class="container search-inner">
+        <div class="search-input-wrap">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="searchInput" placeholder="Search bespoke gadgets, acoustic monoliths, biometrics..." autocomplete="off">
+          <button class="search-clear" id="searchClear" aria-label="Clear Search"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="search-results-grid" id="searchResultsGrid">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION: Ultra-Modern Sensory Showcase -->
+    <section class="hero-section" id="hero">
+      <div class="hero-ambient-glow glow-1"></div>
+      <div class="hero-ambient-glow glow-2"></div>
+      
+      <div class="container hero-container">
+        <div class="hero-content">
+          <div class="hero-eyebrow">
+            <span class="eyebrow-line"></span>
+            <span class="eyebrow-text">LIMITED EDITION OF 50 • SPRING 2026 ARCHITECTURE</span>
+          </div>
+          
+          <h1 class="hero-title">
+            HAUTE TECH.<br>
+            <span class="text-gradient-gold">ENGINEERED FOR</span><br>
+            THE DISCERNING ELITE.
+          </h1>
+          
+          <p class="hero-subtitle">
+            Anshikart transforms raw grade-5 titanium, sapphire crystal, and quantum acoustic architecture into timeless domestic sculptures. Technology stripped of vulgarity.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#catalog" class="btn btn-luxury-primary">
+              <span class="btn-shine"></span>
+              <span>EXPLORE PRIVATE VAULT</span>
+              <i class="fa-solid fa-arrow-right-long"></i>
+            </a>
+            <button class="btn btn-luxury-secondary" id="bookConciergeBtn">
+              <i class="fa-solid fa-fingerprint"></i>
+              <span>REQUEST BESPOKE SPEC</span>
+            </button>
+          </div>
+
+          <div class="hero-specs-strip">
+            <div class="spec-stat">
+              <span class="stat-number">GRADE 5</span>
+              <span class="stat-desc">Titanium Monocoque</span>
+            </div>
+            <div class="spec-divider"></div>
+            <div class="spec-stat">
+              <span class="stat-number">0.001%</span>
+              <span class="stat-desc">Harmonic Distortion</span>
+            </div>
+            <div class="spec-divider"></div>
+            <div class="spec-stat">
+              <span class="stat-number">48 HR</span>
+              <span class="stat-desc">White-Glove Integration</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3D Flagship Presentation Card with Telemetry Hotspots -->
+        <div class="hero-visual">
+          <div class="flagship-card" id="flagshipCard">
+            <div class="card-glass-rim"></div>
+            
+            <div class="flagship-status-badge">
+              <span class="status-dot"></span>
+              <span>VAULT REVELATION #01</span>
+            </div>
+
+            <!-- Flagship High-Tech Image -->
+            <div class="flagship-media-wrapper">
+              <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=1200&q=85" 
+                   alt="Anshikart Apex Chronos Core" 
+                   class="flagship-img"
+                   id="flagshipImg">
+              
+              <!-- Interactive Hotspot 1: Neural Processor -->
+              <div class="telemetry-hotspot" style="top: 28%; left: 35%;" data-tooltip="Quantum Bionic Co-Processor • 140 TOPS Zero-Latency Inference">
+                <div class="hotspot-pulse"></div>
+                <div class="hotspot-pin">1</div>
+              </div>
+
+              <!-- Interactive Hotspot 2: Titanium Monocoque -->
+              <div class="telemetry-hotspot" style="top: 60%; left: 68%;" data-tooltip="Laser-Sintered Grade-5 Titanium • Cryo-Quenched In Liquid Argon">
+                <div class="hotspot-pulse"></div>
+                <div class="hotspot-pin">2</div>
+              </div>
+
+              <!-- Interactive Hotspot 3: Pure Gold Conductors -->
+              <div class="telemetry-hotspot" style="top: 75%; left: 30%;" data-tooltip="24-Karat Gold Bus-Bars • Ultra-Low Impedance Power Delivery">
+                <div class="hotspot-pulse"></div>
+                <div class="hotspot-pin">3</div>
+              </div>
+            </div>
+
+            <!-- Flagship Spec Card Footer -->
+            <div class="flagship-card-footer">
+              <div class="flagship-info">
+                <span class="flagship-category">ARCHITECTURAL HOME BRAIN</span>
+                <h3 class="flagship-name">Anshikart Apex Horizon Monolith</h3>
+                <div class="flagship-price-row">
+                  <span class="flagship-price" data-usd="18900">$18,900</span>
+                  <span class="flagship-avail"><i class="fa-solid fa-shield-halved"></i> 6/50 Allocated</span>
+                </div>
+              </div>
+              <button class="btn-quick-acquire" data-product-id="1" title="Acquire Flagship">
+                <span>ACQUIRE</span>
+                <i class="fa-solid fa-plus"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST & CLIENTELE PRESTIGE BAR -->
+    <section class="prestige-bar">
+      <div class="container prestige-inner">
+        <span class="prestige-title">CURATED FOR PATRONS AT</span>
+        <div class="prestige-logos">
+          <div class="prestige-item"><i class="fa-solid fa-compass"></i> MONACO YACHT CLUB</div>
+          <div class="prestige-item"><i class="fa-solid fa-gem"></i> GINZA ATELIERS</div>
+          <div class="prestige-item"><i class="fa-solid fa-building-columns"></i> ZURICH PRIVATE VAULTS</div>
+          <div class="prestige-item"><i class="fa-solid fa-plane-up"></i> DUBAI AEROSPACE VIP</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THE PRODUCT VAULT (CATALOG WITH MODERN FILTERS) -->
+    <section class="vault-section" id="catalog">
+      <div class="container">
+        <div class="section-header-centered">
+          <div class="section-tag">
+            <i class="fa-solid fa-diamond"></i>
+            <span>HAUTE GADGETRY COLLECTION</span>
+          </div>
+          <h2 class="section-title">The Private Vault</h2>
+          <p class="section-description">
+            Each creation is commissioned in micro-batches, individually hand-finished by master watchmakers and aerospace acoustic technicians.
+          </p>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="vault-filter-bar">
+          <button class="filter-tab active" data-filter="all">
+            <span>All Creations</span>
+            <span class="filter-count">8</span>
+          </button>
+          <button class="filter-tab" data-filter="smart-living">
+            <i class="fa-solid fa-house-signal"></i>
+            <span>Sanctuary & Living</span>
+          </button>
+          <button class="filter-tab" data-filter="neural-acoustics">
+            <i class="fa-solid fa-wave-square"></i>
+            <span>Neural Acoustics</span>
+          </button>
+          <button class="filter-tab" data-filter="wearables">
+            <i class="fa-solid fa-microchip"></i>
+            <span>Cybernetic Wearables</span>
+          </button>
+          <button class="filter-tab" data-filter="vault">
+            <i class="fa-solid fa-lock"></i>
+            <span>Sovereign Security</span>
+          </button>
+        </div>
+
+        <!-- Product Grid (Dynamic) -->
+        <div class="products-grid" id="productsGrid">
+          <!-- Populated by script.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- BESPOKE INNOVATION SPOTLIGHT: MATERIAL MASTERY -->
+    <section class="innovation-section" id="sanctuary">
+      <div class="container innovation-container">
+        <div class="innovation-media">
+          <div class="innovation-badge">
+            <span>MATERIALS SCIENCE</span>
+          </div>
+          <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=1200&q=85" alt="Anshikart Material Craftsmanship" class="innovation-img">
+          <div class="innovation-overlay-card">
+            <div class="overlay-icon"><i class="fa-solid fa-atom"></i></div>
+            <div class="overlay-text">
+              <h4>Liquid Sapphire & Damascus Titanium</h4>
+              <p>Zero thermal expansion. Impervious to electromagnetic interference.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="innovation-content">
+          <div class="section-tag">
+            <i class="fa-solid fa-cube"></i>
+            <span>RADICAL MATERIAL PHILOSOPHY</span>
+          </div>
+          <h2 class="section-title">Obsolescence Is A Modern Crime.</h2>
+          <p class="section-description">
+            Mass-market consumer electronics are engineered to perish. Anshikart rejects disposability. We construct smart domestic systems and neural gadgets from cold-forged crystalline minerals, aerospace alloys, and modular hardware cores built to endure for half a century.
+          </p>
+
+          <div class="innovation-features">
+            <div class="inno-feature-item">
+              <div class="feature-icon-box">
+                <i class="fa-solid fa-microchip"></i>
+              </div>
+              <div class="feature-text">
+                <h3>Swappable Quantum Processing Cartridges</h3>
+                <p>Never discard your sculpture. When computation advances in 2030, our concierge swaps the core in 15 minutes.</p>
+              </div>
+            </div>
+
+            <div class="inno-feature-item">
+              <div class="feature-icon-box">
+                <i class="fa-solid fa-shield-virus"></i>
+              </div>
+              <div class="feature-text">
+                <h3>Air-Gapped Autonomous Privacy</h3>
+                <p>Zero unencrypted cloud tethering. Your domestic telemetry never leaves your premises without multi-sig biometric authorization.</p>
+              </div>
+            </div>
+
+            <div class="inno-feature-item">
+              <div class="feature-icon-box">
+                <i class="fa-solid fa-certificate"></i>
+              </div>
+              <div class="feature-text">
+                <h3>Dual-Token On-Chain Provenance</h3>
+                <p>Each unit ships paired with an encrypted hardware NFC cold card confirming its individual foundry genesis and pedigree.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEURAL ACOUSTIC SPOTLIGHT (INTERACTIVE DEMO SECTION) -->
+    <section class="acoustic-spotlight" id="acoustics">
+      <div class="container">
+        <div class="acoustic-card">
+          <div class="acoustic-glow"></div>
+          <div class="acoustic-grid">
+            <div class="acoustic-text">
+              <div class="section-tag gold">
+                <i class="fa-solid fa-headphones"></i>
+                <span>ANSHIKART ACOUSTIQUE NO. 1</span>
+              </div>
+              <h2>AuraSphere Levitating Resonator</h2>
+              <p>
+                Experience three-dimensional binaural immersion liberated from physical surface resonance. A zero-gravity magnetic suspension field isolates the 99.9% pure beryllium transducer array from all acoustic dampening.
+              </p>
+              
+              <div class="acoustic-metrics">
+                <div class="metric">
+                  <span class="m-val">120dB</span>
+                  <span class="m-label">Dynamic Headroom</span>
+                </div>
+                <div class="metric">
+                  <span class="m-val">&lt; 0.2ms</span>
+                  <span class="m-label">Ultrasonic Latency</span>
+                </div>
+                <div class="metric">
+                  <span class="m-val">4.8 Tesla</span>
+                  <span class="m-label">Neodymium Levitation Field</span>
+                </div>
+              </div>
+
+              <div class="acoustic-actions">
+                <button class="btn btn-luxury-primary" onclick="openQuickView(2)">
+                  <span>INSPECT ACOUSTIC BLUEPRINT</span>
+                  <i class="fa-solid fa-compass-drafting"></i>
+                </button>
+                <div class="edition-status">
+                  <span class="dot-gold"></span>
+                  <span>Edition of 30 Worldwide</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="acoustic-display">
+              <div class="levitation-pedestal">
+                <div class="magnetic-field-rings">
+                  <span class="ring ring-1"></span>
+                  <span class="ring ring-2"></span>
+                  <span class="ring ring-3"></span>
+                </div>
+                <img src="https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=1000&q=85" 
+                     alt="AuraSphere Acoustic Orb" 
+                     class="levitating-sphere">
+                <div class="pedestal-base">
+                  <div class="base-plate"></div>
+                  <span class="base-engraving">ANSHIKART • SWISS FOUNDRY 2026</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THE WHITE-GLOVE VIP CONCIERGE -->
+    <section class="concierge-section" id="concierge">
+      <div class="container">
+        <div class="concierge-card">
+          <div class="concierge-header">
+            <div class="section-tag">
+              <i class="fa-solid fa-user-shield"></i>
+              <span>PRIVÉ WHITE-GLOVE SERVICES</span>
+            </div>
+            <h2>An Exceptional Relationship.</h2>
+            <p>Every Anshikart acquisition is accompanied by personalized diplomatic logistics, custom interior integration, and life-long hardware stewardship.</p>
+          </div>
+
+          <div class="concierge-grid">
+            <div class="concierge-pillar">
+              <div class="pillar-num">01</div>
+              <h3>Aerospace Engineer Installation</h3>
+              <p>Certified electro-acoustic engineers fly directly to your villa, penthouse, or superyacht to calibrate harmonic reflections and acoustic room resonance.</p>
+            </div>
+
+            <div class="concierge-pillar">
+              <div class="pillar-num">02</div>
+              <h3>24/7 Dedicated Tech Butler</h3>
+              <p>A personal direct communication channel to your assigned concierge. Instant troubleshooting, hardware upgrades, and custom firmware overrides.</p>
+            </div>
+
+            <div class="concierge-pillar">
+              <div class="pillar-num">03</div>
+              <h3>Armored Courier & Drone Delivery</h3>
+              <p>High-value shipments delivered via climate-controlled bonded transport with GPS telemetry and biometric custody verification.</p>
+            </div>
+
+            <div class="concierge-pillar">
+              <div class="pillar-num">04</div>
+              <h3>Bespoke Monogramming & Finishing</h3>
+              <p>Select from 24K gold plating, forged Damascus carbon, or custom laser engraving with your family crest or private signature.</p>
+            </div>
+          </div>
+
+          <div class="concierge-cta-bar">
+            <div class="concierge-contact-teaser">
+              <span class="teaser-title">Require a bespoke architectural commission?</span>
+              <span class="teaser-sub">Our Head of Industrial Design accepts 12 private residential commissions annually.</span>
+            </div>
+            <button class="btn btn-luxury-secondary" id="consultationBtn">
+              <span>SCHEDULE PRIVATE AUDIENCE</span>
+              <i class="fa-solid fa-calendar-check"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIP PATRON PRAISE (TESTIMONIALS) -->
+    <section class="patron-reviews">
+      <div class="container">
+        <div class="section-header-centered">
+          <div class="section-tag">
+            <i class="fa-solid fa-quote-left"></i>
+            <span>PATRON CHRONICLES</span>
+          </div>
+          <h2 class="section-title">Reactions From The 0.1%</h2>
+        </div>
+
+        <div class="reviews-slider">
+          <div class="review-card">
+            <div class="review-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="review-quote">
+              "We installed the Anshikart Apex Monolith throughout our Lake Como residence. It is the first smart domestic system that honors architectural purity rather than looking like tacky plastic."
+            </p>
+            <div class="review-author">
+              <div class="author-avatar"><i class="fa-solid fa-user-tie"></i></div>
+              <div>
+                <span class="author-name">Lord Alistair Sterling</span>
+                <span class="author-role">St. Moritz & Mayfair Estates</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card featured">
+            <div class="review-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="review-quote">
+              "The AuraSphere levitating acoustic orb is nothing short of sorcery. Hearing Rachmaninoff's 2nd Concerto floating in mid-air in my superyacht salon redefined high-fidelity sound for me."
+            </p>
+            <div class="review-author">
+              <div class="author-avatar"><i class="fa-solid fa-ship"></i></div>
+              <div>
+                <span class="author-name">Elena Rostova</span>
+                <span class="author-role">Venture Principal & Superyacht Patron</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="review-quote">
+              "The Valkyrie Cyber-Ring eliminated passwords and key fobs across my five residences and automotive fleet. Effortless luxury, peerless cryptographic engineering."
+            </p>
+            <div class="review-author">
+              <div class="author-avatar"><i class="fa-solid fa-vault"></i></div>
+              <div>
+                <span class="author-name">Kenji Takahashi</span>
+                <span class="author-role">Tokyo Quantum Systems Founder</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRIVATE NEWSLETTER / SALON INVITATION -->
+    <section class="salon-invite">
+      <div class="container salon-inner">
+        <div class="salon-text">
+          <div class="section-tag gold">
+            <i class="fa-solid fa-envelope-open-text"></i>
+            <span>BY INVITATION ONLY</span>
+          </div>
+          <h2>Join The Anshikart Gazette</h2>
+          <p>Receive unannounced private vault drops, salon reception invitations in Zurich & Dubai, and bespoke architectural technology retrospectives.</p>
+        </div>
+        <form class="salon-form" id="newsletterForm" onsubmit="handleNewsletter(event)">
+          <div class="form-input-wrap">
+            <input type="email" id="newsletterEmail" placeholder="Enter private concierge or family office email" required>
+            <button type="submit" class="btn btn-luxury-primary">
+              <span>REQUEST INVITATION</span>
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </div>
+          <span class="form-hint"><i class="fa-solid fa-lock"></i> Strict discretion guaranteed. We never disclose patron lists.</span>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- LUXURY FOOTER -->
+  <footer class="luxury-footer">
+    <div class="container footer-container">
+      <div class="footer-brand-col">
+        <div class="brand-monogram">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="20,2 38,12 38,28 20,38 2,28 2,12" stroke="#D4AF37" stroke-width="2.2" fill="rgba(212,175,55,0.06)"/>
+            <circle cx="20" cy="20" r="3.5" fill="#D4AF37"/>
+          </svg>
+        </div>
+        <span class="footer-brand-name">ANSHIKART</span>
+        <p class="footer-tagline">Architectural precision. Uncompromising materials. Haute electronics engineered for eternal distinction.</p>
+        
+        <div class="boutique-cities">
+          <span>MONACO</span> • <span>DUBAI</span> • <span>ZURICH</span> • <span>GINZA</span> • <span>MAYFAIR</span> • <span>ASPEN</span>
+        </div>
+      </div>
+
+      <div class="footer-links-col">
+        <span class="footer-heading">CURATED ARCHIVES</span>
+        <ul>
+          <li><a href="#catalog" onclick="filterVault('all')">Master Creations</a></li>
+          <li><a href="#catalog" onclick="filterVault('smart-living')">Sanctuary Automation</a></li>
+          <li><a href="#catalog" onclick="filterVault('neural-acoustics')">Planar Acoustics</a></li>
+          <li><a href="#catalog" onclick="filterVault('wearables')">Sapphire Wearables</a></li>
+          <li><a href="#catalog" onclick="filterVault('vault')">Cold Storage Vaults</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <span class="footer-heading">PRIVÉ CONCIERGE</span>
+        <ul>
+          <li><a href="#" onclick="openConciergeModal(); return false;">White Glove Booking</a></li>
+          <li><a href="#" onclick="openConciergeModal(); return false;">Bespoke Material Commission</a></li>
+          <li><a href="#" onclick="openConciergeModal(); return false;">Superyacht Integration</a></li>
+          <li><a href="#" onclick="openConciergeModal(); return false;">Verify NFC Authenticity</a></li>
+          <li><a href="#" onclick="openConciergeModal(); return false;">Diplomatic Diplôme Access</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <span class="footer-heading">SETTLEMENT & SECURITY</span>
+        <p class="footer-sec-text">We accommodate wire settlements, physical gold escrow, and tier-1 cryptocurrency transactions via private Swiss custodians.</p>
+        <div class="payment-methods">
+          <span class="pay-badge"><i class="fa-solid fa-shield"></i> SWIFT WIRE</span>
+          <span class="pay-badge"><i class="fa-brands fa-ethereum"></i> CRYPTO MULTI-SIG</span>
+          <span class="pay-badge"><i class="fa-regular fa-credit-card"></i> AMEX CENTURION</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <span>© 2026 ANSHIKART ATELIER SA. ALL RIGHTS RESERVED. REGISTERED GENEVA & DUBAI.</span>
+        <div class="legal-links">
+          <a href="#">Sovereign Privacy Protocol</a>
+          <a href="#">Terms of Bespoke Commission</a>
+          <a href="#">Provenance Ledger</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================== -->
+  <!-- MODAL 1: INTERACTIVE CART DRAWER (PRIVATE VAULT) -->
+  <!-- ============================================== -->
+  <div class="cart-backdrop" id="cartBackdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Private Vault Cart">
+    <div class="cart-drawer-header">
+      <div class="drawer-title-group">
+        <i class="fa-solid fa-box-archive gold"></i>
+        <div>
+          <h3>Your Private Vault</h3>
+          <span class="vault-items-sub" id="vaultItemsSub">0 Acquisitions Selected</span>
+        </div>
+      </div>
+      <button class="drawer-close" id="cartClose" aria-label="Close Cart">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <!-- Free Diplomatic Shipping Alert -->
+    <div class="cart-perk-bar">
+      <i class="fa-solid fa-jet-fighter-up"></i>
+      <span>Complimentary Armored Courier & White-Glove Setup Included</span>
+    </div>
+
+    <!-- Items List -->
+    <div class="cart-items-container" id="cartItemsContainer">
+      <!-- Injected by script.js -->
+    </div>
+
+    <!-- Cart Footer with Monogram & Checkout -->
+    <div class="cart-drawer-footer" id="cartFooter">
+      <!-- Luxury Customization Option -->
+      <label class="bespoke-option-card">
+        <input type="checkbox" id="monogramOption" onchange="toggleMonogramOption()">
+        <div class="option-content">
+          <div class="option-header">
+            <span class="opt-name"><i class="fa-solid fa-pen-fancy"></i> Bespoke Monogrammed Titanium Case</span>
+            <span class="opt-price" id="monogramPriceDisplay">+$450</span>
+          </div>
+          <span class="opt-desc">Hand-chiseled patron initials & laser-serialized presentation vault.</span>
+        </div>
+      </label>
+
+      <!-- Subtotal Breakdown -->
+      <div class="summary-breakdown">
+        <div class="breakdown-row">
+          <span>Acquisition Subtotal</span>
+          <span id="cartSubtotal">$0</span>
+        </div>
+        <div class="breakdown-row">
+          <span>White-Glove Setup</span>
+          <span class="text-gold">COMPLIMENTARY</span>
+        </div>
+        <div class="breakdown-row">
+          <span>Swiss Vault Escrow Fee</span>
+          <span>$0 (WAIVED)</span>
+        </div>
+        <div class="breakdown-divider"></div>
+        <div class="breakdown-row total-row">
+          <span>Total Valuation</span>
+          <span class="total-amount text-gold" id="cartTotal">$0</span>
+        </div>
+      </div>
+
+      <button class="btn btn-luxury-primary btn-checkout" id="checkoutBtn" onclick="openCheckoutModal()">
+        <span>PROCEED TO PRIVATE CHECKOUT</span>
+        <i class="fa-solid fa-lock"></i>
+      </button>
+
+      <span class="escrow-note">
+        <i class="fa-solid fa-shield-halved"></i> 100% Encrypted Escrow Settlement with Biometric Validation
+      </span>
+    </div>
+  </aside>
+
+  <!-- ============================================== -->
+  <!-- MODAL 2: PRODUCT QUICK VIEW & BLUEPRINT MODAL -->
+  <!-- ============================================== -->
+  <div class="modal-backdrop" id="quickViewBackdrop">
+    <div class="modal-window quick-view-modal" id="quickViewModal">
+      <button class="modal-close-btn" onclick="closeQuickView()" aria-label="Close View">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="qv-grid" id="qvContent">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================== -->
+  <!-- MODAL 3: PRIVATE CHECKOUT / CONCIERGE SETTLEMENT -->
+  <!-- ============================================== -->
+  <div class="modal-backdrop" id="checkoutBackdrop">
+    <div class="modal-window checkout-modal" id="checkoutModal">
+      <button class="modal-close-btn" onclick="closeCheckoutModal()" aria-label="Close Checkout">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="checkout-header">
+        <div class="section-tag gold">
+          <i class="fa-solid fa-shield-cat"></i>
+          <span>ANSHIKART ESCROW PROTOCOL</span>
+        </div>
+        <h2>Private Acquisition & Delivery Dossier</h2>
+        <p>Please specify your personal concierge coordinates for armored delivery and white-glove commissioning.</p>
+      </div>
+
+      <form id="checkoutForm" onsubmit="handleCheckoutSubmission(event)">
+        <div class="form-row-2">
+          <div class="form-group">
+            <label for="clientName">Patron Full Name / Title</label>
+            <input type="text" id="clientName" placeholder="e.g. Lord Charles Kensington" required>
+          </div>
+          <div class="form-group">
+            <label for="clientPassport">Diplomatic or VIP ID / Passport No.</label>
+            <input type="text" id="clientPassport" placeholder="Optional for customs clearance">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="deliveryDestination">Primary Residence, Penthouse, or Yacht Berth</label>
+          <input type="text" id="deliveryDestination" placeholder="e.g. Berth 42, Port Hercule, Monaco" required>
+        </div>
+
+        <div class="form-row-2">
+          <div class="form-group">
+            <label for="clientPhone">Encrypted Signal / Telegram / Direct Phone</label>
+            <input type="tel" id="clientPhone" placeholder="+44 20 7946 0912" required>
+          </div>
+          <div class="form-group">
+            <label for="settlementMethod">Preferred Settlement Channel</label>
+            <select id="settlementMethod" required>
+              <option value="swift">Swiss Bank Wire (CHF / USD / EUR)</option>
+              <option value="amex">American Express Centurion Concierge</option>
+              <option value="crypto">USDT / USDC / BTC Escrow (Swiss Custody)</option>
+              <option value="diplomatic">Private Diplomatic Courier on Delivery</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="customInstructions">Custom Engineering / Acoustic Requests</label>
+          <textarea id="customInstructions" rows="3" placeholder="Specify custom finish (24K Gold, Damascus Titanium), monogram initials, or requested installation date."></textarea>
+        </div>
+
+        <div class="checkout-summary-box">
+          <div class="cs-row">
+            <span>Dossier Total Valuation:</span>
+            <span class="cs-price text-gold" id="checkoutFinalVal">$0</span>
+          </div>
+          <p class="cs-note">Upon submission, your assigned Senior Client Liaison will contact you within 60 minutes via secure channel to execute transfer and dispatch logistics.</p>
+        </div>
+
+        <div class="checkout-actions">
+          <button type="button" class="btn btn-luxury-secondary" onclick="closeCheckoutModal()">REVISE SELECTIONS</button>
+          <button type="submit" class="btn btn-luxury-primary">
+            <span>TRANSMIT ACQUISITION DOSSIER</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ============================================== -->
+  <!-- MODAL 4: CONCIERGE PRIVATE AUDIENCE -->
+  <!-- ============================================== -->
+  <div class="modal-backdrop" id="conciergeBackdrop">
+    <div class="modal-window concierge-modal" id="conciergeModal">
+      <button class="modal-close-btn" onclick="closeConciergeModal()" aria-label="Close Concierge">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="checkout-header">
+        <div class="section-tag gold">
+          <i class="fa-solid fa-handshake-simple"></i>
+          <span>BESPOKE COMMISSION</span>
+        </div>
+        <h2>Request Private Engineering Audience</h2>
+        <p>Direct consultation with our Chief Architect for custom residential installations, private island telemetries, and one-of-one gadget creations.</p>
+      </div>
+
+      <form id="audienceForm" onsubmit="handleAudienceSubmission(event)">
+        <div class="form-row-2">
+          <div class="form-group">
+            <label for="audName">Representative / Principal Name</label>
+            <input type="text" id="audName" placeholder="Full Name" required>
+          </div>
+          <div class="form-group">
+            <label for="audEmail">Official / Family Office Email</label>
+            <input type="email" id="audEmail" placeholder="principal@familyoffice.ch" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="audLocation">Consultation Location</label>
+          <select id="audLocation">
+            <option value="zurich">Zurich Private Salon (Bahnhofstrasse)</option>
+            <option value="dubai">Dubai DIFC Private Penthouse</option>
+            <option value="london">Mayfair Private Suite, London</option>
+            <option value="tokyo">Tokyo Ginza Atelier</option>
+            <option value="remote">Private Encrypted Video Teleconference</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="audScope">Project Scope / Requirements</label>
+          <textarea id="audScope" rows="4" placeholder="Describe the residence, yacht, or custom device specification you wish to commission." required></textarea>
+        </div>
+
+        <div class="checkout-actions">
+          <button type="button" class="btn btn-luxury-secondary" onclick="closeConciergeModal()">CANCEL</button>
+          <button type="submit" class="btn btn-luxury-primary">
+            <span>CONFIRM APPOINTMENT REQUEST</span>
+            <i class="fa-solid fa-calendar-check"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div class="toast-hub" id="toastHub"></div>
+
+  <!-- Application Logic -->
+  <script src="script.js"></script>
+</body>
+</html>
